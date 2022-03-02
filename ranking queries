@@ -1,0 +1,38 @@
+RANK:
+
+SELECT stateuts,population,
+RANK () OVER(ORDER BY population DESC) pop_rank
+FROM coro;
+
+SELECT stateuts,population, totalcases,
+RANK () OVER(ORDER BY totalcases DESC) tot_rank
+FROM coro;
+
+DENSE_RANK:
+
+SELECT stateuts,population, totalcases,
+DENSE_RANK () OVER(ORDER BY totalcases DESC) tot_rank
+FROM coro;
+
+NTILE:
+
+SELECT stateuts,population, totalcases,
+NTILE(6) OVER(ORDER BY totalcases DESC) 
+FROM coro;
+
+Comparing:
+SELECT stateuts,
+	totalcases,
+	LEAD(totalcases,1) OVER (ORDER BY population) lead_rank,
+	LAG(totalcases,1) OVER (ORDER BY population) lag_rank
+FROM coro;
+
+
+compute smoothed rolling average
+SELECT
+   AVG(totalcases) OVER (PARTITION BY stateuts ORDER BY deaths ROWS BETWEEN 2 PRECEDING AND 2 FOLLOWING) AS cases_smoothed5,
+   totalcases,
+   stateuts,
+   deaths
+FROM coro;
+
