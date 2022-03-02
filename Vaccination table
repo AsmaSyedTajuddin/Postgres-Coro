@@ -1,0 +1,52 @@
+Vaccination:
+
+CREATE TABLE vaccination (
+   id SERIAL,
+   state VARCHAR(50),
+   statecode INTEGER,
+   firstdose INTEGER,
+   seconddose INTEGER,
+   totaldose INTEGER,
+   PRIMARY KEY (id),
+   FOREIGN KEY(statecode) REFERENCES vsw(statecode));
+
+
+INSERT INTO vaccination(state,statecode,firstdose,seconddose,totaldose)
+VALUES 
+('AndamanNicobar',35,294001,200157,494158),
+ ('AndhraPradesh',28,32976969,20375181,53352150),
+  ('ArunachalPradesh',12,771875,534486,1306361),
+  ('Assam',18,20172463,8068795,28241258),
+   ('Bihar',10,49874828,18346781,68221609),
+   ('Chandigarh',4,926035,546981,1473016),
+   ('Chhattisgarh',22,14851682,7343273,22194955),
+   ('DamanDiu',26,660753,370255,1031008),
+  ('Delhi',7,13055636,7425404,20481040),
+  ('Goa',30,1262568,911114,2173682),
+   ('Gujarat',24,44735217,25972387,70707604),
+   ('Haryana',6,17772376,8115463,25887839),
+    ('HimachalPradesh',2,5713695,3443823,9157518),
+   ('JammuKashmir',1,9511073,5149471,14660544),
+   ('Jharkhand',20,14986646,5585648,20572294),
+    ('Karnataka',29,42497761,22858384,65356145),
+  ('Kerala',32,25306499,13658343,38964842),
+   ('Ladakh',37,208798,152280,361078),
+  ('Lakshadweep',31,55129,45951,101080),
+   ('MadhyaPradesh',23,49911938,20838045,70749983),
+   ('Maharashtra',27,67198794,30975692,98174486),
+    ('Manipur',14,1249436,719413,1968849),
+    ('Meghalaya',17,1103275,641819,1745094),
+   ('Mizoram',15,711597,512029,1223626),
+   ('Nagaland',13,709553,490663,1200216),
+   ('Odisha',21,25736641,11560912,37297553),
+   ('Puducherry',34,733922,404355,1138277),
+    ('Punjab',3,15942714,6238973,22181687),
+    ('Rajasthan',8,42544909,20097635,62642544),
+    ('Sikkim',11,521763,451509,973272),
+   ('TamilNadu',33,41279432,17619141,58898573),
+   ('Telangana',36,22498559,9772398,32270957),
+    ('Tripura',16,2508477,1621329,4129806),
+   ('UttarPradesh',9,98178865,32681895,130860760),
+   ('Uttarakhand',5,7478017,3898342,11376359),
+   ('WestBengal',19,56192166,21559747,77751913);
+
