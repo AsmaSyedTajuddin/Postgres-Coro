@@ -1,0 +1,14 @@
+Cube:
+SELECT stateuts, active , discharged , SUM(totalcases)
+FROM coro
+WHERE totalcases > 100000
+GROUP BY CUBE(stateuts, active, discharged)
+ORDER BY active DESC
+LIMIT 100;
+
+SELECT stateuts, active , discharged , SUM(population)
+FROM coro
+WHERE totalcases > 100000 AND population > 10000000
+GROUP BY CUBE(stateuts, active, discharged)
+ORDER BY active DESC
+LIMIT 10;
