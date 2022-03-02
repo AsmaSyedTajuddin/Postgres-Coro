@@ -1,0 +1,37 @@
+## Query 11:- Death Ratio South India vs North India
+SELECT AVG(dischargeratio) AS avg_deathrate FROM coro
+WHERE stateuts IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala')
+UNION ALL
+SELECT AVG(dischargeratio) AS avg_deathrate FROM coro
+WHERE stateuts NOT IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala');
+
+SELECT
+MAX(CASE WHEN stateuts='Delhi' THEN deathsratio ELSE 0 END) AS activeratio,
+MAX(CASE WHEN stateuts='Maharastra' THEN deathsratio ELSE 0 END) AS activeratio,
+MAX(CASE WHEN stateuts='Rajasthan' THEN deathsratio ELSE 0 END) AS activeratio,
+MAX(CASE WHEN stateuts='Punjab' THEN deathsratio ELSE 0 END) AS activeratio,
+MAX(CASE WHEN stateuts='Karnataka' THEN deathsratio ELSE 0 END) AS activeratio,
+MAX(CASE WHEN stateuts='Kerala' THEN deathsratio ELSE 0 END) AS activeratio,
+MAX(CASE WHEN stateuts='Telangana' THEN deathsratio ELSE 0 END) AS activeratio
+FROM coro;
+
+
+SELECT
+MAX(CASE WHEN stateuts='Delhi' THEN deaths ELSE 0 END) AS deaths,
+MAX(CASE WHEN stateuts='Maharastra' THEN deaths ELSE 0 END) AS deaths,
+MAX(CASE WHEN stateuts='Rajasthan' THEN deaths ELSE 0 END) AS deaths,
+MAX(CASE WHEN stateuts='Punjab' THEN deaths ELSE 0 END) AS deaths,
+MAX(CASE WHEN stateuts='Karnataka' THEN deaths ELSE 0 END) AS deaths,
+MAX(CASE WHEN stateuts='Kerala' THEN deaths ELSE 0 END) AS deaths,
+MAX(CASE WHEN stateuts='Telangana' THEN deaths ELSE 0 END) AS deaths
+FROM coro
+UNION ALL
+SELECT 
+MIN(CASE WHEN stateuts='Delhi' THEN deaths ELSE 0 END) AS deaths,
+MIN(CASE WHEN stateuts='Maharastra' THEN deaths ELSE 0 END) AS deaths,
+MIN(CASE WHEN stateuts='Rajasthan' THEN deaths ELSE 0 END) AS deaths,
+MIN(CASE WHEN stateuts='Punjab' THEN deaths ELSE 0 END) AS deaths,
+MIN(CASE WHEN stateuts='Karnataka' THEN deaths ELSE 0 END) AS deaths,
+MIN(CASE WHEN stateuts='Kerala' THEN deaths ELSE 0 END) AS deaths,
+MIN(CASE WHEN stateuts='Telangana' THEN deaths ELSE 0 END) AS deaths
+FROM coro;
