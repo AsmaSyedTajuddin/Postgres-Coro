@@ -1,0 +1,7 @@
+Rollup:
+SELECT stateuts, active , discharged , SUM(totalcases)
+FROM coro
+WHERE totalcases > 100000
+GROUP BY ROLLUP(stateuts, active, discharged)
+ORDER BY active DESC
+LIMIT 10;
