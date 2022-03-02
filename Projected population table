@@ -1,0 +1,48 @@
+Projected Population: 
+
+CREATE TABLE population (
+ id SERIAL,
+  code INTEGER,
+  state VARCHAR(50),
+  population INTEGER,
+  PRIMARY KEY (state),
+  FOREIGN KEY(code) REFERENCES vsw(statecode));
+
+INSERT INTO population(code,state, population)
+VALUES (35,'AndamanNicobar',400000),
+   (28,'AndhraPradesh',52787000),
+    (12,'ArunachalPradesh',1533000),
+     (18,'Assam',35043000),
+  (10,'Bihar',123083000),
+ (4,'Chandigarh',1208000),
+  (22,'Chhattisgarh',29493000),
+   (26,'DamanDiu',1078000),
+  (7,'Delhi',20571000),
+   (30,'Goa',1559000),
+    (24,'Gujarat',69788000),
+     (6,'Haryana',29483000),
+    (2,'HimachalPradesh',7394000),
+   (1,'JammuKashmir',13408000),
+(20,'Jharkhand',38471000),
+    (29,'Karnataka',66845000),
+   (32,'Kerala',35489000),
+    (37,'Ladakh',297000),
+    (31,'Lakshadweep',68000),
+   (23,'MadhyaPradesh',84516000),
+   (27,'Maharashtra',124437000),
+     (14,'Manipur',3165000),
+    (17,'Meghalaya',3288000),
+    (15,'Mizoram',1216000),
+   (13,'Nagaland',2192000),
+   (21,'Odisha',44033000),
+    (34,'Puducherry',1572000),
+     (3,'Punjab',30339000),
+     (8,'Rajasthan',79281000),
+     (11,'Sikkim',677000),
+     (33,'TamilNadu',76402000),
+     (36,'Telangana',37725000),
+     (16,'Tripura',4071000),
+     (9,'UttarPradesh',230907000),
+     (5,'Uttarakhand',11399000),
+     (19,'WestBengal',98125000);
+
