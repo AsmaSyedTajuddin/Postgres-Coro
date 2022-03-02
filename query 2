@@ -1,0 +1,7 @@
+## Query 3:- states with successful discharges
+
+SELECT stateuts AS State, discharged AS Discharged, totalcases AS Totalcases
+FROM coro
+GROUP BY stateuts, discharged, totalcases
+ORDER BY Discharged DESC;
+
