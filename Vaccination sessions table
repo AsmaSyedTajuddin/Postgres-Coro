@@ -1,0 +1,48 @@
+CREATE TABLE sessions (
+id SERIAL,
+state VARCHAR(50),
+vaxsession INTEGER,
+site INTEGER,
+PRIMARY KEY (id),
+FOREIGN KEY(state) REFERENCES population(state));
+
+
+
+INSERT INTO sessions(state,vaxsession,site)
+VALUES 
+('AndamanNicobar',0,0),
+   ('AndhraPradesh',1972002,1292),
+    ('ArunachalPradesh',1851,15),
+     ('Assam',1074330,1766),
+  ('Bihar',7462898,9626),
+ ('Chandigarh',19306,43),
+  ('Chhattisgarh',1482694,2209),
+   ('DamanDiu',30601,44),
+  ('Delhi',200213,715),
+   ('Goa',125880,89),
+    ('Gujarat',1146425,1846),
+     ('Haryana',519111,580),
+    ('HimachalPradesh',41679,256),
+   ('JammuKashmir',1028138,1723),
+('Jharkhand',737320,1399),
+    ('Karnataka',3863314,3341),
+   ('Kerala',105129,243),
+    ('Ladakh',0,0),
+    ('Lakshadweep',10080,9),
+   ('MadhyaPradesh',948557,2266),
+   ('Maharashtra',2046640,3132),
+     ('Manipur',37277,68),
+    ('Meghalaya',3150,6),
+    ('Mizoram',0,0),
+   ('Nagaland',11304,34),
+   ('Odisha',143872,312),
+    ('Puducherry',85020,44),
+     ('Punjab',388525,330),
+     ('Rajasthan',1454316,2187),
+     ('Sikkim',0,0),
+     ('TamilNadu',1468628,1286),
+     ('Telangana',1812677,878),
+     ('Tripura',50621,166),
+     ('UttarPradesh',4025753,2591),
+     ('Uttarakhand',138999,354),
+     ('WestBengal',719495,1496);
