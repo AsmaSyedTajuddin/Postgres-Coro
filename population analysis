@@ -1,0 +1,16 @@
+SELECT *
+FROM coro
+WHERE population > 100000000
+
+SELECT *
+FROM coro
+WHERE totalcases  > 1000000 AND population > 100000000
+
+
+SELECT *
+FROM coro
+WHERE totalcases  > 1000000 AND population > 100000000
+INTERSECT ALL
+SELECT *
+FROM coro
+WHERE deaths > 20000
