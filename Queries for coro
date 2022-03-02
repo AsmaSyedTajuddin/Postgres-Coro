@@ -1,0 +1,96 @@
+## Query 4:- states with most  deaths
+
+SELECT stateuts AS State, deaths AS Deaths, population AS Population, 
+FROM coro
+GROUP BY stateuts, deaths
+ORDER BY DE DESC;
+
+
+## Query 5:- Compute the Discharge Rate
+SELECT
+stateuts as St,
+discharged as Disc,
+totalcases as T,
+round(100*(round(discharged,2)/round(totalcases,2)),2) as DR
+FROM coro
+GROUP BY stateuts, discharged, totalcases;
+
+
+## Query 6:- Max Total_Case vs Min Total_Case
+
+SELECT MIN(totalcases) AS Max_Min_Cases FROM coro
+UNION ALL
+SELECT MAX(totalcases) AS Max_Min_Cases FROM coro
+ORDER BY Max_Min_Cases DESC;
+
+
+
+## Query 7:- Max Death vs Min Death
+
+SELECT MIN(deaths) AS Max_Min_Deaths FROM coro
+UNION ALL
+SELECT MAX(deaths) AS Max_Min_Deaths FROM coro
+ORDER BY Max_Min_Deaths DESC;
+
+## Query 8:- Max Active Cases vs Min Active Cases
+
+SELECT MIN(active) AS Max_Min_active FROM coro
+UNION ALL
+SELECT MAX(active) AS Max_Min_active FROM coro
+ORDER BY Max_Min_active DESC;
+
+
+## Query 9:- Death Ratio South India vs North India
+
+SELECT AVG(deathsratio) AS Avg_Death_Rate FROM coro
+WHERE stateuts IN ('TamilNadu','Puducherry','Telangana','AndhraPradesh','Karnataka','Kerala')
+UNION ALL
+SELECT AVG(deathsratio) AS Avg_Death_Rate FROM coro
+WHERE stateuts NOT IN ('TamilNadu','Puducherry','Telangana','AndhraPradesh','Karnataka','Kerala');
+
+## Query 10:- Active Ratio South India vs North India
+
+SELECT AVG(activeratio) AS Avg_active_Rate FROM coro;
+then check
+SELECT AVG(activeratio) AS Avg_active_Rate FROM coro
+WHERE stateuts IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala')
+UNION ALL
+SELECT AVG(activeratio) AS Avg_active_Rate FROM coro
+WHERE stateuts NOT IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala');
+
+compare
+
+SELECT AVG(totalcases) AS Avg_cases FROM coro
+WHERE stateuts IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala')
+UNION ALL
+SELECT AVG(totalcases) AS Avg_cases FROM coro
+WHERE stateuts NOT IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala');
+
+compare
+
+SELECT AVG(active) AS Avg_active FROM coro
+WHERE stateuts IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala')
+UNION ALL
+SELECT AVG(active) AS Avg_active FROM coro
+WHERE stateuts NOT IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala');
+
+compare
+
+SELECT AVG(deaths) AS Avg_deaths FROM coro
+WHERE stateuts IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala')
+UNION ALL
+SELECT AVG(deaths) AS Avg_deaths FROM coro
+WHERE stateuts NOT IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala');
+
+compare
+
+SELECT SUM(deaths) AS sum_deaths FROM coro
+WHERE stateuts IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala')
+UNION ALL
+SELECT SUM(deaths) AS sum_deaths FROM coro
+WHERE stateuts NOT IN ('Tamil Nadu','Puducherry','Telengana','Andhra Pradesh','Karnataka','Kerala');
+
+
+
+
+
