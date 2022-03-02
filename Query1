@@ -1,0 +1,5 @@
+## Query 2:- states with most active cases
+SELECT stateuts AS Su, active AS Ac
+FROM coro
+GROUP BY stateuts, active
+ORDER BY Ac DESC;
